@@ -64,7 +64,7 @@ import { initializeAgent } from './adaptiveAgent/agent';
 // For production, you must use a secure method to store and access your API key,
 // such as environment variables or a secure backend service.
 // Do not commit this key to a public repository.
-const GEMINI_API_KEY = 'YOUR_API_KEY_HERE';
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 const agentTargetSelector = '#agent-container';
 
@@ -84,6 +84,6 @@ if (GEMINI_API_KEY && GEMINI_API_KEY !== 'YOUR_API_KEY_HERE') {
     console.error(`Adaptive Agent: Target element "${agentTargetSelector}" not found. Agent not initialized.`);
   }
 } else {
-  console.warn("Gemini API Key is missing or is a placeholder. Adaptive Agent not initialized. Please replace 'YOUR_API_KEY_HERE' in main.js.");
+  console.warn("Gemini API Key is missing or is a placeholder. Adaptive Agent not initialized. Please replace 'YOUR_API_KEY_HERE' in a .env local file");
 }
 // ----- End Integration for Adaptive Agent -----
